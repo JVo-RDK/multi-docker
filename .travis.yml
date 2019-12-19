@@ -15,7 +15,7 @@ after_success:
     - docker build -t th3v055i/multi-worker ./worker
 # the above images have to be push to docker hub
 # donot mis to login Docker hub by 'docker login'
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     - docker push th3v055i/multi-client
     - docker push th3v055i/multi-nginx
     - docker push th3v055i/multi-server
