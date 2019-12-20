@@ -4,7 +4,8 @@ services:
         image: 'postgres:latest'
     redis:
         image: 'redis:latest'
-    # named before server but not to confuse the nginx server the name is changed to 'api'
+    # named before 'server' but not to confuse the nginx server the name is changed to 'api'
+    # Router
     nginx:
         restart: always
         build: 
@@ -38,6 +39,7 @@ services:
         volumes: 
             - /app/node_modules
             - ./client:/app
+    # REDIS
     worker:
         build:
             dockerfile: Dockerfile.dev

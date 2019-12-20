@@ -1,0 +1,37 @@
+# this is the only file that is needed by Elasticsbeantalk
+{
+    "AWSEBSDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "multi-client",
+            "image": "th3v055i/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "multi-server",
+            "image": "th3v055i/multi-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "multi-worker",
+            "image": "th3v055i/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {
+            "name": "multi-nginx",
+            "image": "th3v055i/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portmappings": [
+                {
+                "hostPort": 80,
+                "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"]
+        }
+    ]
+}
