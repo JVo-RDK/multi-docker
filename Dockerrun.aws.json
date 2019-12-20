@@ -1,4 +1,4 @@
-# this is the only file that is needed by Elasticsbeantalk
+// this is the only file that is needed by Elasticsbeantalk
 {
     "AWSEBSDockerrunVersion": 2,
     "containerDefinitions": [
