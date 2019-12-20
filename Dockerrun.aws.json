@@ -1,6 +1,6 @@
 {
     "AWSEBSDockerrunVersion": 2,
-    "containerDefinitions": [
+    "volumes": [
         {
             "name": "multi-client",
             "image": "th3v055i/multi-client",
