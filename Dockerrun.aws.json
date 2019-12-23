@@ -1,40 +1,40 @@
 {
-    "AWSEBSDockerrunVersion": 2,
-    "volumes": [
-        {
-            "name": "multi-client",
-            "image": "th3v055i/multi-client",
-            "hostname": "client",
-            "essential": false,
-            "memory": 128
-        },
-        {
-            "name": "multi-server",
-            "image": "th3v055i/multi-server",
-            "hostname": "api",
-            "essential": false,
-            "memory": 128
-        },
-        {
-            "name": "multi-worker",
-            "image": "th3v055i/multi-worker",
-            "hostname": "worker",
-            "essential": false,
-            "memory": 128
-        },
-        {
-            "name": "multi-nginx",
-            "image": "th3v055i/multi-nginx",
-            "hostname": "nginx",
-            "essential": true,
-            "portmappings": [
-                {
-                "hostPort": 80,
-                "containerPort": 80
-                }
-            ],
-            "links": ["client", "server"],
-            "memory": 128
-        }
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+      {
+        "name": "client",
+        "image": "th3v055i/multi-client",
+        "hostname": "client",
+        "essential": false,
+        "memory": 128
+      },
+      {
+        "name": "server",
+        "image": "th3v055i/multi-server",
+        "hostname": "api",
+        "essential": false,
+        "memory": 128
+      },
+      {
+        "name": "worker",
+        "image": "th3v055i/multi-worker",
+        "hostname": "worker",
+        "essential": false,
+        "memory": 128
+      },
+      {
+        "name": "nginx",
+        "image": "th3v055i/multi-nginx",
+        "hostname": "nginx",
+        "essential": true,
+        "portMappings": [
+          {
+            "hostPort": 80,
+            "containerPort": 80
+          }
+        ],
+        "links": ["client", "server"],
+        "memory": 128
+      }
     ]
-}
+  }
